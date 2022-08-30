@@ -1,0 +1,12 @@
+{
+  "mainnet": "",
+  "goerli": "0xd2fC88F0e7d11bBF95545D40C2485034Bad17CAd",
+  "rinkeby": "0x421360c00D8f648CBeb514492b804Cd7E66B4c11",
+  "polygon": "",
+  "polygonMumbai": "0x421360c00D8f648CBeb514492b804Cd7E66B4c11",
+  "optimism": "",
+  "optimismGoerli": "0xf302a74Ae50d5Eb089e356fc56Ab795E5cF03cCD",
+  "arbitrum": "",
+  "arbitrumGoerli": "0xa2A2FF56e2FE0B089b1148667d3Ba222daf89EB6",
+  "localhost": "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707"
+}
