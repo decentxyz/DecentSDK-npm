@@ -4,17 +4,11 @@ import DCNTSDK from './contracts/DCNTSDK.json';
 import { Chain } from './chains';
 
 export const setupDCNTSDK = async(
-  chainOrAddress: Chain | string,
+  chain: Chain,
   signerOrProvider: Signer | Provider
 ) => {
-  const endpoint = ethers.utils.getAddress(
-    typeof chainOrAddress == 'string'
-      ? chainOrAddress
-      : chainOrAddress.endpoint
-  );
-
   return new ethers.Contract(
-    endpoint,
+    chain.endpoint,
     DCNTSDK.abi,
     signerOrProvider
   )

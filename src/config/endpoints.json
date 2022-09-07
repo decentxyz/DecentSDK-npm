@@ -7,6 +7,5 @@
   "optimism": "",
   "optimismGoerli": "0xf302a74Ae50d5Eb089e356fc56Ab795E5cF03cCD",
   "arbitrum": "",
-  "arbitrumGoerli": "0xa2A2FF56e2FE0B089b1148667d3Ba222daf89EB6",
-  "localhost": "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707"
+  "arbitrumGoerli": "0xa2A2FF56e2FE0B089b1148667d3Ba222daf89EB6"
 }

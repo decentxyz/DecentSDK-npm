@@ -41,10 +41,6 @@ const arbitrumGoerli: Chain = {
   endpoint: endpoints.arbitrumGoerli,
 }
 
-const localhost: Chain = {
-  endpoint: endpoints.localhost,
-}
-
 export const chain = {
   mainnet,
   goerli,
@@ -55,5 +51,4 @@ export const chain = {
   optimismGoerli,
   arbitrum,
   arbitrumGoerli,
-  localhost,
 }
