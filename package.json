@@ -16,8 +16,8 @@
     "rollup": "^2.78.1"
   },
   "peerDependencies": {
-    "ethers": "^5.7.0",
     "@ethersproject/providers": "^5.7.0",
+    "ethers": "^5.7.0",
     "tslib": "^2.4.0",
     "typescript": "^4.7.4"
   },
@@ -30,5 +30,8 @@
     "url": "https://github.com/decentxyz/DecentSDK-npm/issues"
   },
   "homepage": "https://github.com/decentxyz/DecentSDK-npm#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "nft.storage": "^7.0.0"
+  }
 }
