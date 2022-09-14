@@ -19,7 +19,8 @@ export const setupDCNTSDK = async(
   signerOrProvider: Signer | Provider
 ) => {
   const sdk = (() => {
-    const endpoint = typeof chain == "number" ? chainIdToChain(chain).endpoint : chain.endpoint
+    const contractChain = typeof chain == "number" ? chainIdToChain(chain) : chain;
+    const endpoint = contractChain.endpoint;
     const contract = new ethers.Contract(
       endpoint,
       DCNTSDK.abi,
