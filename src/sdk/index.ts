@@ -28,7 +28,7 @@ export const setupDCNTSDK = async(
     );
 
     return {
-      chain,
+      contractChain,
       signerOrProvider,
       contract
     };
