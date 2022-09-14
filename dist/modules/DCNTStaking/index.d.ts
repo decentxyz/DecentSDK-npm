@@ -1,3 +1,4 @@
-import { ethers, Contract } from "ethers";
-export declare const deployDCNTStaking: (DCNTSDK: Contract, nft: string, token: string, vaultDuration: number, totalSupply: number) => Promise<ethers.Contract>;
-export declare const getDCNTStaking: (DCNTSDK: Contract, address: string) => Promise<ethers.Contract>;
+import { SDK } from "../../sdk";
+import { ethers } from "ethers";
+export declare const deployDCNTStaking: (sdk: SDK, nft: string, token: string, vaultDuration: number, totalSupply: number) => Promise<ethers.Contract>;
+export declare const getDCNTStaking: (sdk: SDK, address: string) => Promise<ethers.Contract>;
