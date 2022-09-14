@@ -1,7 +1,7 @@
 import { ethers, Signer, Contract } from "ethers";
 import { Provider } from "@ethersproject/providers"
 import DCNTSDK from './contracts/DCNTSDK.json';
-import { Chain } from './chains';
+import { Chain, allChains, chain as DCNTChain } from './chains';
 
 export type SDK = {
   chain: Chain;
@@ -9,19 +9,26 @@ export type SDK = {
   contract: Contract;
 }
 
+const chainIdToChain = (chainId: number) => {
+  const chain = allChains.find((chain) => chain.id == chainId);
+  return chain || DCNTChain.mainnet
+};
+
 export const setupDCNTSDK = async(
-  chain: Chain,
+  chain: Chain | number,
   signerOrProvider: Signer | Provider
 ) => {
   const sdk = (() => {
+    const contractChain = typeof chain == "number" ? chainIdToChain(chain) : chain;
+    const endpoint = contractChain.endpoint;
     const contract = new ethers.Contract(
-      chain.endpoint,
+      endpoint,
       DCNTSDK.abi,
       signerOrProvider
     );
 
     return {
-      chain,
+      contractChain,
       signerOrProvider,
       contract
     };
