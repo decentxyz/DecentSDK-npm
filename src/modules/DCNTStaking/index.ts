@@ -1,14 +1,15 @@
+import { SDK } from "../../sdk";
 import { ethers, Contract } from "ethers";
 import DCNTStaking from './contracts/DCNTStaking.json';
 
 export const deployDCNTStaking = async (
-  DCNTSDK: Contract,
+  sdk: SDK,
   nft: string,
   token: string,
   vaultDuration: number,
   totalSupply: number
 ) => {
-  const deployTx = await DCNTSDK.deployDCNTStaking(
+  const deployTx = await sdk.contract.deployDCNTStaking(
     nft,
     token,
     vaultDuration,
@@ -18,16 +19,16 @@ export const deployDCNTStaking = async (
   const receipt = await deployTx.wait();
   const address = receipt.events.find((x: any) => x.event === 'DeployDCNTStaking').args.DCNTStaking;
 
-  return getDCNTStaking(DCNTSDK, address);
+  return getDCNTStaking(sdk, address);
 }
 
 export const getDCNTStaking = async (
-  DCNTSDK: Contract,
+  sdk: SDK,
   address: string
 ) => {
   return new ethers.Contract(
     address,
     DCNTStaking.abi,
-    DCNTSDK.signer || DCNTSDK.provider
+    sdk.signerOrProvider
   );
 }

@@ -1,8 +1,9 @@
+import { SDK } from "../../sdk";
 import { ethers, BigNumber, Contract } from "ethers";
 import DCNTCrescendo from './contracts/DCNTCrescendo.json';
 
 export const deployDCNTCrescendo = async (
-  DCNTSDK: Contract,
+  sdk: SDK,
   name: string,
   symbol: string,
   uri: string,
@@ -14,7 +15,7 @@ export const deployDCNTCrescendo = async (
   trDenom: number,
   payouts: string
 ) => {
-  const deployTx = await DCNTSDK.deployDCNTCrescendo(
+  const deployTx = await sdk.contract.deployDCNTCrescendo(
     name,
     symbol,
     uri,
@@ -30,16 +31,16 @@ export const deployDCNTCrescendo = async (
   const receipt = await deployTx.wait();
   const address = receipt.events.find((x: any) => x.event === 'DeployDCNTCrescendo').args.DCNTCrescendo;
 
-  return getDCNTCrescendo(DCNTSDK, address);
+  return getDCNTCrescendo(sdk, address);
 }
 
 export const getDCNTCrescendo = async (
-  DCNTSDK: Contract,
+  sdk: SDK,
   address: string
 ) => {
   return new ethers.Contract(
     address,
     DCNTCrescendo.abi,
-    DCNTSDK.signer || DCNTSDK.provider
+    sdk.signerOrProvider
   );
 }
