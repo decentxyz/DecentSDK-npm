@@ -4,7 +4,7 @@ import DCNTSDK from './contracts/DCNTSDK.json';
 import { Chain, allChains, chain as DCNTChain } from './chains';
 
 export type SDK = {
-  chain: Chain;
+  contractChain: Chain;
   signerOrProvider: Signer | Provider;
   contract: Contract;
 }
