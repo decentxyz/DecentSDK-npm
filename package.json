@@ -13,9 +13,7 @@
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-typescript": "^8.4.0",
-    "rollup": "^2.78.1"
-  },
-  "peerDependencies": {
+    "rollup": "^2.78.1",
     "ethers": "^5.5.1",
     "@ethersproject/abstract-provider": "^5.5.1",
     "@ethersproject/abstract-signer": "^5.5.0",
