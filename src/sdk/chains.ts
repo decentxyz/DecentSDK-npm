@@ -1,4 +1,3 @@
-import { ethers } from "ethers";
 import endpoints from './config/endpoints.json';
 
 export type Chain = {

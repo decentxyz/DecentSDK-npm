@@ -17,6 +17,7 @@
     "ethers": "^5.5.1",
     "@ethersproject/abstract-provider": "^5.5.1",
     "@ethersproject/abstract-signer": "^5.5.0",
+    "nft.storage": "^7.0.0",
     "tslib": "^2.4.0",
     "typescript": "^4.7.4"
   },
