@@ -5,7 +5,7 @@ import { deployDCNT4907A, getDCNT4907A } from './modules/DCNT4907A';
 import { deployDCNTCrescendo, getDCNTCrescendo } from './modules/DCNTCrescendo';
 import { deployDCNTVault, getDCNTVault } from './modules/DCNTVault';
 import { deployDCNTStaking, getDCNTStaking } from './modules/DCNTStaking';
-import createIpfsMetadata from './modules/IPFS';
+import { createIpfsMetadata } from './modules/IPFS';
 
 export {
   setupDCNTSDK,

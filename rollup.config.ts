@@ -13,5 +13,5 @@ export default {
     typescript(),
     json()
   ],
-  external: ['ethers']
+  external: ['ethers', 'nft.storage']
 };
