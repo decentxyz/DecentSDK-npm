@@ -1,69 +1,75 @@
-import endpoints from './config/endpoints.json';
+import { Addresses, addresses } from '../addresses';
 
 export type Chain = {
-  network: string;
-  endpoint: string;
   id: number;
+  network: string;
+  addresses: Addresses;
 }
 
 const mainnet: Chain = {
+  id: 1,
   network: 'mainnet',
-  endpoint: endpoints.mainnet,
-  id: 1
+  addresses: addresses.mainnet,
 }
 
 const goerli: Chain = {
+  id: 5,
   network: 'goerli',
-  endpoint: endpoints.goerli,
-  id: 5
+  addresses: addresses.goerli,
 }
 
 const rinkeby: Chain = {
+  id: 4,
   network: 'rinkeby',
-  endpoint: endpoints.rinkeby,
-  id: 4
+  addresses: addresses.rinkeby,
 }
 
 const polygon: Chain = {
+  id: 137,
   network: 'polygon',
-  endpoint: endpoints.polygon,
-  id: 137
+  addresses: addresses.polygon,
 }
 
 const polygonMumbai: Chain = {
+  id: 80_001,
   network: 'polygonMumbai',
-  endpoint: endpoints.polygonMumbai,
-  id: 80001
+  addresses: addresses.polygonMumbai,
 }
 
 const optimism: Chain = {
+  id: 10,
   network: 'optimism',
-  endpoint: endpoints.optimism,
-  id: 10
+  addresses: addresses.optimism,
 }
 
 const optimismGoerli: Chain = {
+  id: 420,
   network: 'optimismGoerli',
-  endpoint: endpoints.optimismGoerli,
-  id: 420
+  addresses: addresses.optimismGoerli,
 }
 
 const arbitrum: Chain = {
+  id: 42_161,
   network: 'arbitrum',
-  endpoint: endpoints.arbitrum,
-  id: 42161
+  addresses: addresses.arbitrum,
 }
 
 const arbitrumGoerli: Chain = {
+  id: 421_613,
   network: 'arbitrumGoerli',
-  endpoint: endpoints.arbitrumGoerli,
-  id: 421613
+  addresses: addresses.arbitrumGoerli,
 }
 
 const localhost: Chain = {
+  id: 1_337,
   network: 'localhost',
-  endpoint: endpoints.localhost,
-  id: 0
+  addresses: addresses.hardhat,
+}
+
+const hardhat: Chain = {
+  id: 31_337,
+  network: 'localhost',
+  addresses: addresses.hardhat,
 }
 
 export const chain = {
@@ -76,7 +82,8 @@ export const chain = {
   optimismGoerli,
   arbitrum,
   arbitrumGoerli,
-  localhost
+  hardhat,
+  localhost,
 }
 
 export const allChains = [
@@ -89,6 +96,6 @@ export const allChains = [
   optimismGoerli,
   arbitrum,
   arbitrumGoerli,
-  localhost
+  hardhat,
+  localhost,
 ];
-

@@ -23,7 +23,9 @@ export const setupDCNTSDK = async(
     const sdkChain = typeof chainOrChainId == "number"
       ? chainIdToChain(chainOrChainId)
       : chainOrChainId;
-    const endpoint = sdkChain.endpoint;
+
+    const endpoint = sdkChain.addresses.DCNTSDK;
+
     const contract = new ethers.Contract(
       endpoint,
       DCNTSDK.abi,
