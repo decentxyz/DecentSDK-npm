@@ -1,31 +1,49 @@
 import { SDK } from "../../sdk";
 import { ethers, BigNumber, Contract } from "ethers";
 import DCNTCrescendo from './contracts/DCNTCrescendo.json';
+import { MetadataRendererInit } from '../DCNTMetadataRenderer';
 
 export const deployDCNTCrescendo = async (
   sdk: SDK,
   name: string,
   symbol: string,
-  uri: string,
   initialPrice: BigNumber,
   step1: BigNumber,
   step2: BigNumber,
   hitch: number,
-  trNum: number,
-  trDenom: number,
-  payouts: string
+  takeRateBPS: number,
+  unlockDate: number,
+  royaltyBPS: number,
+  metadataURI: string,
+  metadataRendererInit: MetadataRendererInit | null
 ) => {
+  const encodedMetadata = metadataRendererInit != null
+    ? ethers.utils.AbiCoder.prototype.encode(
+        ['string', 'string', 'string'],
+        [
+          metadataRendererInit.description,
+          metadataRendererInit.imageURI,
+          metadataRendererInit.animationURI
+        ]
+      )
+    : [];
+
   const deployTx = await sdk.contract.deployDCNTCrescendo(
-    name,
-    symbol,
-    uri,
-    initialPrice,
-    step1,
-    step2,
-    hitch,
-    trNum,
-    trDenom,
-    payouts
+    {
+      name,
+      symbol,
+      initialPrice,
+      step1,
+      step2,
+      hitch,
+      takeRateBPS,
+      unlockDate,
+      royaltyBPS,
+    },
+    {
+      metadataURI,
+      metadataRendererInit: encodedMetadata,
+    }
   );
 
   const receipt = await deployTx.wait();
