@@ -5,12 +5,12 @@ import { deployDCNT4907A, getDCNT4907A } from './modules/DCNT4907A';
 import { deployDCNTCrescendo, getDCNTCrescendo } from './modules/DCNTCrescendo';
 import { deployDCNTVault, getDCNTVault } from './modules/DCNTVault';
 import { deployDCNTStaking, getDCNTStaking } from './modules/DCNTStaking';
+import { getDCNTMetadataRenderer } from './modules/DCNTMetadataRenderer';
 import { createIpfsMetadata } from './modules/IPFS';
 
 export {
   setupDCNTSDK,
   chain,
-  createIpfsMetadata,
   deployDCNT721A,
   getDCNT721A,
   deployDCNT4907A,
@@ -21,4 +21,6 @@ export {
   getDCNTVault,
   deployDCNTStaking,
   getDCNTStaking,
+  getDCNTMetadataRenderer,
+  createIpfsMetadata,
 };
