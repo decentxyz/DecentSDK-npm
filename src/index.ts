@@ -5,6 +5,7 @@ import { deployDCNT4907A, getDCNT4907A } from './modules/DCNT4907A';
 import { deployDCNTCrescendo, getDCNTCrescendo } from './modules/DCNTCrescendo';
 import { deployDCNTVault, getDCNTVault } from './modules/DCNTVault';
 import { deployDCNTStaking, getDCNTStaking } from './modules/DCNTStaking';
+import { getDCNTRegistry } from './modules/DCNTRegistry';
 import { getDCNTMetadataRenderer } from './modules/DCNTMetadataRenderer';
 import { createIpfsMetadata } from './modules/IPFS';
 
@@ -21,6 +22,7 @@ export {
   getDCNTVault,
   deployDCNTStaking,
   getDCNTStaking,
+  getDCNTRegistry,
   getDCNTMetadataRenderer,
   createIpfsMetadata,
 };
