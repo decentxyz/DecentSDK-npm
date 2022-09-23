@@ -7,6 +7,7 @@ import { deployDCNTVault, getDCNTVault } from './modules/DCNTVault';
 import { deployDCNTStaking, getDCNTStaking } from './modules/DCNTStaking';
 import { getDCNTRegistry } from './modules/DCNTRegistry';
 import { getDCNTMetadataRenderer } from './modules/DCNTMetadataRenderer';
+import vaultBackedNFT from './modules/VaultBackedNFT';
 import { createIpfsMetadata } from './modules/IPFS';
 
 export {
@@ -24,5 +25,6 @@ export {
   getDCNTStaking,
   getDCNTRegistry,
   getDCNTMetadataRenderer,
+  vaultBackedNFT,
   createIpfsMetadata,
 };
