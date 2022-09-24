@@ -1,6 +1,6 @@
 import { SDK } from "../../sdk";
 import { ethers, BigNumber, Contract } from "ethers";
-import DCNTCrescendo from './contracts/DCNTCrescendo.json';
+import DCNTCrescendo from '../../contracts/DCNTCrescendo.json';
 import { MetadataRendererInit } from '../MetadataRenderer';
 
 const deploy = async (

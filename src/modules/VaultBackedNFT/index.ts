@@ -1,6 +1,6 @@
 import { SDK } from "../../sdk";
 import { ethers, BigNumber } from "ethers";
-import DCNTVaultNFT from './contracts/DCNTVaultNFT.json';
+import DCNTVaultNFT from '../../contracts/DCNTVaultNFT.json';
 import { MetadataRendererInit } from '../MetadataRenderer';
 import edition from '../Edition';
 import vault from '../Vault';

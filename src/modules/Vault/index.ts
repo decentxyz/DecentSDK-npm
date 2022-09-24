@@ -1,6 +1,6 @@
 import { SDK } from "../../sdk";
 import { ethers, Contract } from "ethers";
-import DCNTVault from './contracts/DCNTVault.json';
+import DCNTVault from '../../contracts/DCNTVault.json';
 
 const deploy = async (
   sdk: SDK,

@@ -1,6 +1,6 @@
 import { SDK } from "../../sdk";
 import { ethers } from "ethers";
-import DCNTRegistry from './contracts/DCNTRegistry.json';
+import DCNTRegistry from '../../contracts/DCNTRegistry.json';
 
 const getContract = async (
   sdk: SDK,

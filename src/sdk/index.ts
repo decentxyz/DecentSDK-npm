@@ -1,7 +1,7 @@
 import { ethers, Contract } from "ethers";
 import { Provider } from "@ethersproject/abstract-provider";
 import { Signer } from "@ethersproject/abstract-signer";
-import DCNTSDK from './contracts/DCNTSDK.json';
+import DCNTSDK from '../contracts/DCNTSDK.json';
 import { Chain, chain } from '../chains';
 
 export type SDK = {

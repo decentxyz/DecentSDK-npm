@@ -1,6 +1,6 @@
 import { SDK } from "../../sdk";
 import { ethers, BigNumber, Contract } from "ethers";
-import DCNT4907A from './contracts/DCNT4907A.json';
+import DCNT4907A from '../../contracts/DCNT4907A.json';
 import { MetadataRendererInit } from '../MetadataRenderer';
 
 const deploy = async (

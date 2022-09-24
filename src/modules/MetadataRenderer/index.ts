@@ -1,6 +1,6 @@
 import { SDK } from "../../sdk";
 import { ethers } from "ethers";
-import DCNTMetadataRenderer from './contracts/DCNTMetadataRenderer.json';
+import DCNTMetadataRenderer from '../../contracts/DCNTMetadataRenderer.json';
 
 export type MetadataRendererInit = {
   description: string;
