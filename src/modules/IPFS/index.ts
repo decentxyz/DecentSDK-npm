@@ -1,6 +1,6 @@
 import { NFTStorage } from "nft.storage";
 
-export const createIpfsMetadata = async (metadata: any) => {
+const createMetadata = async (metadata: any) => {
   const client = new NFTStorage({
     token:
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweGMzNTA3ZEY4NkNlZTgwZUExNTQyMzhkMDQ4NDVGOTg2MjM0NmI5M0EiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTY2MzcwMDQ3NTM0MiwibmFtZSI6ImRlY2VudC1zZGsifQ.xKo6Lgznxai4GbZSc5jJwbisjWM9aA-RK7uVifHkrok",
@@ -13,4 +13,8 @@ export const createIpfsMetadata = async (metadata: any) => {
       return { error: error.message };
     });
   return ipfs;
+};
+
+export default {
+  createMetadata
 };

@@ -8,7 +8,7 @@ export type MetadataRendererInit = {
   animationURI: string;
 }
 
-export const getDCNTMetadataRenderer = async (
+export const getContract = async (
   sdk: SDK,
 ) => {
   const address = await sdk.contract.metadataRenderer();
@@ -18,3 +18,7 @@ export const getDCNTMetadataRenderer = async (
     sdk.signerOrProvider
   );
 }
+
+export default {
+  getContract,
+};

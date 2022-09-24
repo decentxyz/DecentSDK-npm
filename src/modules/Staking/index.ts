@@ -2,7 +2,7 @@ import { SDK } from "../../sdk";
 import { ethers, Contract } from "ethers";
 import DCNTStaking from './contracts/DCNTStaking.json';
 
-export const deployDCNTStaking = async (
+const deploy = async (
   sdk: SDK,
   nft: string,
   token: string,
@@ -19,10 +19,10 @@ export const deployDCNTStaking = async (
   const receipt = await deployTx.wait();
   const address = receipt.events.find((x: any) => x.event === 'DeployDCNTStaking').args.DCNTStaking;
 
-  return getDCNTStaking(sdk, address);
+  return getContract(sdk, address);
 }
 
-export const getDCNTStaking = async (
+const getContract = async (
   sdk: SDK,
   address: string
 ) => {
@@ -32,3 +32,8 @@ export const getDCNTStaking = async (
     sdk.signerOrProvider
   );
 }
+
+export default {
+  deploy,
+  getContract,
+};

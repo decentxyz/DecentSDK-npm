@@ -1,9 +1,9 @@
 import { SDK } from "../../sdk";
 import { ethers, BigNumber } from "ethers";
 import DCNTVaultNFT from './contracts/DCNTVaultNFT.json';
-import { MetadataRendererInit } from '../DCNTMetadataRenderer';
-import { getDCNT721A } from '../DCNT721A';
-import { getDCNTVault } from '../DCNTVault';
+import { MetadataRendererInit } from '../MetadataRenderer';
+import edition from '../Edition';
+import vault from '../Vault';
 
 const create = async(
   sdk: SDK,
@@ -30,7 +30,7 @@ const create = async(
       )
     : [];
 
-  const dcntVaultNFT = await getDCNTVaultNFT(sdk);
+  const dcntVaultNFT = await getContract(sdk);
 
   const deployTx = await dcntVaultNFT.create(
     sdk.contract.address,
@@ -52,22 +52,22 @@ const create = async(
   );
 
   const receipt = await deployTx.wait();
-  const nft = receipt.events.find((x: any) => x.event === 'Create').args.nft;
-  const vault = receipt.events.find((x: any) => x.event === 'Create').args.vault;
+  const nftAddr = receipt.events.find((x: any) => x.event === 'Create').args.nft;
+  const vaultAddr = receipt.events.find((x: any) => x.event === 'Create').args.vault;
 
   return [
-    await getDCNT721A(sdk, nft),
-    await getDCNTVault(sdk, vault)
+    await edition.getContract(sdk, nftAddr),
+    await vault.getContract(sdk, vaultAddr),
   ];
 }
 
-const getDCNTVaultNFT = async (
+const getContract = async (
   sdk: SDK
 ) => {
-  const endpoint = sdk.chain.addresses.DCNTVaultNFT;
+  const address = sdk.chain.addresses.DCNTVaultNFT;
 
   return new ethers.Contract(
-    endpoint,
+    address,
     DCNTVaultNFT.abi,
     sdk.signerOrProvider
   );

@@ -1,9 +1,9 @@
 import { SDK } from "../../sdk";
 import { ethers, BigNumber, Contract } from "ethers";
 import DCNT721A from './contracts/DCNT721A.json';
-import { MetadataRendererInit } from '../DCNTMetadataRenderer';
+import { MetadataRendererInit } from '../MetadataRenderer';
 
-export const deployDCNT721A = async (
+const deploy = async (
   sdk: SDK,
   name: string,
   symbol: string,
@@ -43,10 +43,10 @@ export const deployDCNT721A = async (
   const receipt = await deployTx.wait();
   const address = receipt.events.find((x: any) => x.event === 'DeployDCNT721A').args.DCNT721A;
 
-  return getDCNT721A(sdk, address);
+  return getContract(sdk, address);
 }
 
-export const getDCNT721A = async (
+const getContract = async (
   sdk: SDK,
   address: string
 ) => {
@@ -56,3 +56,8 @@ export const getDCNT721A = async (
     sdk.signerOrProvider
   );
 }
+
+export default {
+  deploy,
+  getContract,
+};

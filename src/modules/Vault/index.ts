@@ -2,27 +2,27 @@ import { SDK } from "../../sdk";
 import { ethers, Contract } from "ethers";
 import DCNTVault from './contracts/DCNTVault.json';
 
-export const deployDCNTVault = async (
+const deploy = async (
   sdk: SDK,
-  _vaultDistributionTokenAddress: string,
-  _nftVaultKeyAddress: string,
-  _nftTotalSupply: number,
-  _unlockDate: number
+  vaultDistributionTokenAddress: string,
+  nftVaultKeyAddress: string,
+  nftTotalSupply: number,
+  unlockDate: number
 ) => {
   const deployTx = await sdk.contract.deployDCNTVault(
-    _vaultDistributionTokenAddress,
-    _nftVaultKeyAddress,
-    _nftTotalSupply,
-    _unlockDate
+    vaultDistributionTokenAddress,
+    nftVaultKeyAddress,
+    nftTotalSupply,
+    unlockDate
   );
 
   const receipt = await deployTx.wait();
   const address = receipt.events.find((x: any) => x.event === 'DeployDCNTVault').args.DCNTVault;
 
-  return getDCNTVault(sdk, address);
+  return getContract(sdk, address);
 }
 
-export const getDCNTVault = async (
+const getContract = async (
   sdk: SDK,
   address: string
 ) => {
@@ -32,3 +32,8 @@ export const getDCNTVault = async (
     sdk.signerOrProvider
   );
 }
+
+export default {
+  deploy,
+  getContract,
+};

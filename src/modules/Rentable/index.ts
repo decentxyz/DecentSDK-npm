@@ -1,18 +1,15 @@
 import { SDK } from "../../sdk";
 import { ethers, BigNumber, Contract } from "ethers";
-import DCNTCrescendo from './contracts/DCNTCrescendo.json';
-import { MetadataRendererInit } from '../DCNTMetadataRenderer';
+import DCNT4907A from './contracts/DCNT4907A.json';
+import { MetadataRendererInit } from '../MetadataRenderer';
 
-export const deployDCNTCrescendo = async (
+const deploy = async (
   sdk: SDK,
   name: string,
   symbol: string,
-  initialPrice: BigNumber,
-  step1: BigNumber,
-  step2: BigNumber,
-  hitch: number,
-  takeRateBPS: number,
-  unlockDate: number,
+  maxTokens: number,
+  tokenPrice: BigNumber,
+  maxTokenPurchase: number,
   royaltyBPS: number,
   metadataURI: string,
   metadataRendererInit: MetadataRendererInit | null
@@ -28,16 +25,13 @@ export const deployDCNTCrescendo = async (
       )
     : [];
 
-  const deployTx = await sdk.contract.deployDCNTCrescendo(
+  const deployTx = await sdk.contract.deployDCNT4907A(
     {
       name,
       symbol,
-      initialPrice,
-      step1,
-      step2,
-      hitch,
-      takeRateBPS,
-      unlockDate,
+      maxTokens,
+      tokenPrice,
+      maxTokenPurchase,
       royaltyBPS,
     },
     {
@@ -47,18 +41,23 @@ export const deployDCNTCrescendo = async (
   );
 
   const receipt = await deployTx.wait();
-  const address = receipt.events.find((x: any) => x.event === 'DeployDCNTCrescendo').args.DCNTCrescendo;
+  const address = receipt.events.find((x: any) => x.event === 'DeployDCNT4907A').args.DCNT4907A;
 
-  return getDCNTCrescendo(sdk, address);
+  return getContract(sdk, address);
 }
 
-export const getDCNTCrescendo = async (
+const getContract = async (
   sdk: SDK,
   address: string
 ) => {
   return new ethers.Contract(
     address,
-    DCNTCrescendo.abi,
+    DCNT4907A.abi,
     sdk.signerOrProvider
   );
 }
+
+export default {
+  deploy,
+  getContract,
+};

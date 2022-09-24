@@ -2,7 +2,7 @@ import { SDK } from "../../sdk";
 import { ethers } from "ethers";
 import DCNTRegistry from './contracts/DCNTRegistry.json';
 
-export const getDCNTRegistry = async (
+const getContract = async (
   sdk: SDK,
 ) => {
   const address = await sdk.contract.contractRegistry();
@@ -12,3 +12,16 @@ export const getDCNTRegistry = async (
     sdk.signerOrProvider
   );
 }
+
+const query = async (
+  sdk: SDK,
+  address: string,
+) => {
+  const registry = await getContract(sdk);
+  return registry.query(address);
+}
+
+export default {
+  query,
+  getContract,
+};
