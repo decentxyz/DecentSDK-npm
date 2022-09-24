@@ -72,6 +72,11 @@ const hardhat: Chain = {
   addresses: addresses.hardhat,
 }
 
+const withId = (chainId: number) => {
+  const match = allChains.find((chain) => chain.id == chainId);
+  return match || chain.mainnet
+};
+
 export const chain = {
   mainnet,
   goerli,
@@ -84,6 +89,7 @@ export const chain = {
   arbitrumGoerli,
   hardhat,
   localhost,
+  withId,
 }
 
 export const allChains = [
