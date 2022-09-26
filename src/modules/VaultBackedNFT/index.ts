@@ -17,7 +17,9 @@ const create = async(
   metadataRendererInit: MetadataRendererInit | null,
   vaultDistributionTokenAddress: string,
   unlockDate: number,
-  supports4907: boolean
+  supports4907: boolean,
+  onTxPending?: Function,
+  onTxReceipt?: Function
 ) => {
   const encodedMetadata = metadataRendererInit != null
     ? ethers.utils.AbiCoder.prototype.encode(
@@ -51,7 +53,10 @@ const create = async(
     supports4907
   );
 
+  onTxPending?.(deployTx);
   const receipt = await deployTx.wait();
+  onTxReceipt?.(receipt);
+
   const nftAddr = receipt.events.find((x: any) => x.event === 'Create').args.nft;
   const vaultAddr = receipt.events.find((x: any) => x.event === 'Create').args.vault;
 

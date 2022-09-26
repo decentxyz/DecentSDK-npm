@@ -7,7 +7,9 @@ const deploy = async (
   vaultDistributionTokenAddress: string,
   nftVaultKeyAddress: string,
   nftTotalSupply: number,
-  unlockDate: number
+  unlockDate: number,
+  onTxPending?: Function,
+  onTxReceipt?: Function
 ) => {
   const deployTx = await sdk.contract.deployDCNTVault(
     vaultDistributionTokenAddress,
@@ -16,9 +18,11 @@ const deploy = async (
     unlockDate
   );
 
+  onTxPending?.(deployTx);
   const receipt = await deployTx.wait();
-  const address = receipt.events.find((x: any) => x.event === 'DeployDCNTVault').args.DCNTVault;
+  onTxReceipt?.(receipt);
 
+  const address = receipt.events.find((x: any) => x.event === 'DeployDCNTVault').args.DCNTVault;
   return getContract(sdk, address);
 }
 

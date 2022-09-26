@@ -12,7 +12,9 @@ const deploy = async (
   maxTokenPurchase: number,
   royaltyBPS: number,
   metadataURI: string,
-  metadataRendererInit: MetadataRendererInit | null
+  metadataRendererInit: MetadataRendererInit | null,
+  onTxPending?: Function,
+  onTxReceipt?: Function
 ) => {
   const encodedMetadata = metadataRendererInit != null
     ? ethers.utils.AbiCoder.prototype.encode(
@@ -40,9 +42,11 @@ const deploy = async (
     }
   );
 
+  onTxPending?.(deployTx);
   const receipt = await deployTx.wait();
-  const address = receipt.events.find((x: any) => x.event === 'DeployDCNT721A').args.DCNT721A;
+  onTxReceipt?.(receipt);
 
+  const address = receipt.events.find((x: any) => x.event === 'DeployDCNT721A').args.DCNT721A;
   return getContract(sdk, address);
 }
 
