@@ -19,6 +19,7 @@ export type Addresses = {
   DCNTMetadataRenderer: string;
   DCNTRegistry: string;
   DCNTVaultNFT: string;
+  DCNTRentalMarket: string;
   SplitMain: string;
 }
 
