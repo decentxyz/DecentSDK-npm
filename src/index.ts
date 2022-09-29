@@ -8,6 +8,7 @@ import staking from './modules/Staking';
 import registry from './modules/Registry';
 import metadataRenderer from './modules/MetadataRenderer';
 import vaultBackedNFT from './modules/VaultBackedNFT';
+import rentalMarket from './modules/RentalMarket';
 import ipfs from './modules/IPFS';
 
 export {
@@ -21,5 +22,6 @@ export {
   registry,
   metadataRenderer,
   vaultBackedNFT,
+  rentalMarket,
   ipfs,
 };
