@@ -11,7 +11,7 @@ export type MetadataRendererInit = {
 export const getContract = async (
   sdk: SDK,
 ) => {
-  const address = await sdk.contract.metadataRenderer();
+  const address = sdk.chain.addresses.DCNTMetadataRenderer;
   return new ethers.Contract(
     address,
     DCNTMetadataRenderer.abi,

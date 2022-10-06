@@ -18,12 +18,6 @@ const goerli: Chain = {
   addresses: addresses.goerli,
 }
 
-const rinkeby: Chain = {
-  id: 4,
-  network: 'rinkeby',
-  addresses: addresses.rinkeby,
-}
-
 const polygon: Chain = {
   id: 137,
   network: 'polygon',
@@ -80,7 +74,6 @@ const withId = (chainId: number) => {
 export const chain = {
   mainnet,
   goerli,
-  rinkeby,
   polygon,
   polygonMumbai,
   optimism,
@@ -95,7 +88,6 @@ export const chain = {
 export const allChains = [
   mainnet,
   goerli,
-  rinkeby,
   polygon,
   polygonMumbai,
   optimism,

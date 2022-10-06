@@ -5,7 +5,7 @@ import DCNTRegistry from '../../contracts/DCNTRegistry.json';
 const getContract = async (
   sdk: SDK,
 ) => {
-  const address = await sdk.contract.contractRegistry();
+  const address = sdk.chain.addresses.DCNTRegistry;
   return new ethers.Contract(
     address,
     DCNTRegistry.abi,

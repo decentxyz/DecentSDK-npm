@@ -1,6 +1,5 @@
 import mainnet from './1-mainnet.json';
 import goerli from './5-goerli.json';
-import rinkeby from './4-rinkeby.json';
 import polygon from './137-polygon.json';
 import polygonMumbai from './80001-polygonMumbai.json';
 import optimism from './10-optimism.json';
@@ -26,7 +25,6 @@ export type Addresses = {
 export const addresses = {
   mainnet,
   goerli,
-  rinkeby,
   polygon,
   polygonMumbai,
   optimism,

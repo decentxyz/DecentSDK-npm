@@ -1,5 +1,5 @@
 {
-  "name": "@decent.xyz/decent-sdk-private-v0",
+  "name": "@decent.xyz/sdk",
   "version": "0.1.0",
   "main": "dist/index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "keywords": [],
   "author": "zev@decent.xyz",
-  "license": "ISC",
+  "license": "GNU GPL V3.0",
   "devDependencies": {
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.3.0",
