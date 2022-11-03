@@ -2,13 +2,13 @@
 
 ### Core Resources
 
-(Protocol Documentation)[https://docs.decent.xyz/]: includes module descriptions, available  functions for each contract, and protocol deployment addresses.
+[Protocol Documentation](https://docs.decent.xyz/): includes module descriptions, available  functions for each contract, and protocol deployment addresses.
 
-(Protocol Repository)[https://github.com/decentxyz/DecentSDK-protocol]: you can find community discussions about new PR's and issues in the Discussions panel of this repository.
+[Protocol Repository](https://github.com/decentxyz/DecentSDK-protocol): you can find community discussions about new PR's and issues in the Discussions panel of this repository.
 
-(SDK Repository)[https://github.com/decentxyz/DecentSDK-npm]
+[SDK Repository](https://github.com/decentxyz/DecentSDK-npm)
 
-(Starter Repo)[https://github.com/decentxyz/Start-Decent]: the fastest way to publish your first application using Decent is to fork this repository (NextJS, Tailwind, RainbowKit, DecentSDK).
+[Starter Repo](https://github.com/decentxyz/Start-Decent): the fastest way to publish your first application using Decent is to fork this repository (NextJS, Tailwind, RainbowKit, DecentSDK).
 
 ### Getting Started
 
