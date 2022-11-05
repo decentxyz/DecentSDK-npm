@@ -12,6 +12,7 @@ const create = async(
   maxTokens: number,
   tokenPrice: BigNumber,
   maxTokenPurchase: number,
+  saleStart: number,
   royaltyBPS: number,
   metadataURI: string,
   metadataRendererInit: MetadataRendererInit | null,
@@ -42,6 +43,7 @@ const create = async(
       maxTokens,
       tokenPrice,
       maxTokenPurchase,
+      saleStart,
       royaltyBPS,
     },
     {

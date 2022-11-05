@@ -13,6 +13,7 @@ const deploy = async (
   hitch: number,
   takeRateBPS: number,
   unlockDate: number,
+  saleStart: number,
   royaltyBPS: number,
   metadataURI: string,
   metadataRendererInit: MetadataRendererInit | null,
@@ -40,6 +41,7 @@ const deploy = async (
       hitch,
       takeRateBPS,
       unlockDate,
+      saleStart,
       royaltyBPS,
     },
     {

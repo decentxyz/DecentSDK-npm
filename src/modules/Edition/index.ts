@@ -10,6 +10,7 @@ const deploy = async (
   maxTokens: number,
   tokenPrice: BigNumber,
   maxTokenPurchase: number,
+  saleStart: number,
   royaltyBPS: number,
   metadataURI: string,
   metadataRendererInit: MetadataRendererInit | null,
@@ -34,6 +35,7 @@ const deploy = async (
       maxTokens,
       tokenPrice,
       maxTokenPurchase,
+      saleStart,
       royaltyBPS,
     },
     {
