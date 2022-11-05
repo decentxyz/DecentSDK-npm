@@ -15,10 +15,12 @@ const deploy = async (
   unlockDate: number,
   saleStart: number,
   royaltyBPS: number,
+  contractURI: string,
   metadataURI: string,
   metadataRendererInit: MetadataRendererInit | null,
   onTxPending?: Function,
-  onTxReceipt?: Function
+  onTxReceipt?: Function,
+  parentIP: string = ethers.constants.AddressZero
 ) => {
   const encodedMetadata = metadataRendererInit != null
     ? ethers.utils.AbiCoder.prototype.encode(
@@ -45,8 +47,10 @@ const deploy = async (
       royaltyBPS,
     },
     {
+      contractURI,
       metadataURI,
       metadataRendererInit: encodedMetadata,
+      parentIP
     }
   );
 
