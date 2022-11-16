@@ -1,12 +1,10 @@
 import { SDK } from "../../sdk";
-import { ethers, BigNumber } from "ethers";
-import DCNTVaultNFT from '../../contracts/DCNTVaultNFT.json';
+import { ethers, BigNumber, Contract } from "ethers";
+import DCNT4907A from '../../contracts/DCNT4907A.json';
 import { MetadataRendererInit } from '../MetadataRenderer';
 import { TokenGateConfig } from '../Edition';
-import edition from '../Edition';
-import vault from '../Vault';
 
-const create = async(
+const deploy = async (
   sdk: SDK,
   name: string,
   symbol: string,
@@ -24,9 +22,6 @@ const create = async(
   metadataURI: string,
   metadataRendererInit: MetadataRendererInit | null,
   tokenGateConfig: TokenGateConfig | null,
-  vaultDistributionTokenAddress: string,
-  unlockDate: number,
-  supports4907: boolean,
   onTxPending?: Function,
   onTxReceipt?: Function,
   parentIP: string = ethers.constants.AddressZero
@@ -42,10 +37,7 @@ const create = async(
       )
     : [];
 
-  const dcntVaultNFT = await getContract(sdk);
-
-  const deployTx = await dcntVaultNFT.create(
-    sdk.contract.address,
+  const deployTx = await sdk.contract.deployDCNT4907A(
     {
       name,
       symbol,
@@ -70,37 +62,29 @@ const create = async(
       tokenAddress: ethers.constants.AddressZero,
       minBalance: 0,
       saleType: 0,
-    },
-    vaultDistributionTokenAddress,
-    unlockDate,
-    supports4907
+    }
   );
 
   onTxPending?.(deployTx);
   const receipt = await deployTx.wait();
   onTxReceipt?.(receipt);
 
-  const nftAddr = receipt.events.find((x: any) => x.event === 'Create').args.nft;
-  const vaultAddr = receipt.events.find((x: any) => x.event === 'Create').args.vault;
-
-  return [
-    await edition.getContract(sdk, nftAddr),
-    await vault.getContract(sdk, vaultAddr),
-  ];
+  const address = receipt.events.find((x: any) => x.event === 'DeployDCNT4907A').args.DCNT4907A;
+  return getContract(sdk, address);
 }
 
 const getContract = async (
-  sdk: SDK
+  sdk: SDK,
+  address: string
 ) => {
-  const address = sdk.chain.addresses.DCNTVaultNFT;
-
   return new ethers.Contract(
     address,
-    DCNTVaultNFT.abi,
+    DCNT4907A.abi,
     sdk.signerOrProvider
   );
 }
 
 export default {
-  create
+  deploy,
+  getContract,
 };
