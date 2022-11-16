@@ -8,6 +8,7 @@ export declare type Addresses = {
     DCNTMetadataRenderer: string;
     DCNTRegistry: string;
     DCNTVaultNFT: string;
+    DCNTRentalMarket: string;
     SplitMain: string;
 };
 export declare const addresses: {
@@ -21,6 +22,7 @@ export declare const addresses: {
         DCNTMetadataRenderer: string;
         DCNTRegistry: string;
         DCNTVaultNFT: string;
+        DCNTRentalMarket: string;
         SplitMain: string;
     };
     goerli: {
@@ -33,18 +35,7 @@ export declare const addresses: {
         DCNTMetadataRenderer: string;
         DCNTRegistry: string;
         DCNTVaultNFT: string;
-        SplitMain: string;
-    };
-    rinkeby: {
-        DCNTSDK: string;
-        DCNT721A: string;
-        DCNT4907A: string;
-        DCNTCrescendo: string;
-        DCNTVault: string;
-        DCNTStaking: string;
-        DCNTMetadataRenderer: string;
-        DCNTRegistry: string;
-        DCNTVaultNFT: string;
+        DCNTRentalMarket: string;
         SplitMain: string;
     };
     polygon: {
@@ -57,6 +48,7 @@ export declare const addresses: {
         DCNTMetadataRenderer: string;
         DCNTRegistry: string;
         DCNTVaultNFT: string;
+        DCNTRentalMarket: string;
         SplitMain: string;
     };
     polygonMumbai: {
@@ -69,6 +61,7 @@ export declare const addresses: {
         DCNTMetadataRenderer: string;
         DCNTRegistry: string;
         DCNTVaultNFT: string;
+        DCNTRentalMarket: string;
         SplitMain: string;
     };
     optimism: {
@@ -81,6 +74,7 @@ export declare const addresses: {
         DCNTMetadataRenderer: string;
         DCNTRegistry: string;
         DCNTVaultNFT: string;
+        DCNTRentalMarket: string;
         SplitMain: string;
     };
     optimismGoerli: {
@@ -93,6 +87,7 @@ export declare const addresses: {
         DCNTMetadataRenderer: string;
         DCNTRegistry: string;
         DCNTVaultNFT: string;
+        DCNTRentalMarket: string;
         SplitMain: string;
     };
     arbitrum: {
@@ -105,6 +100,7 @@ export declare const addresses: {
         DCNTMetadataRenderer: string;
         DCNTRegistry: string;
         DCNTVaultNFT: string;
+        DCNTRentalMarket: string;
         SplitMain: string;
     };
     arbitrumGoerli: {
@@ -117,6 +113,7 @@ export declare const addresses: {
         DCNTMetadataRenderer: string;
         DCNTRegistry: string;
         DCNTVaultNFT: string;
+        DCNTRentalMarket: string;
         SplitMain: string;
     };
     hardhat: {
@@ -129,6 +126,7 @@ export declare const addresses: {
         DCNTMetadataRenderer: string;
         DCNTRegistry: string;
         DCNTVaultNFT: string;
+        DCNTRentalMarket: string;
         SplitMain: string;
     };
 };
