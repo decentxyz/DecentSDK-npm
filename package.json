@@ -10,18 +10,19 @@
   "author": "zev@decent.xyz",
   "license": "GNU GPL V3.0",
   "devDependencies": {
+    "@ethersproject/abstract-provider": "^5.5.1",
+    "@ethersproject/abstract-signer": "^5.5.0",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-typescript": "^8.4.0",
-    "rollup": "^2.78.1",
     "ethers": "^5.5.1",
-    "@ethersproject/abstract-provider": "^5.5.1",
-    "@ethersproject/abstract-signer": "^5.5.0",
+    "rollup": "^2.78.1",
     "tslib": "^2.4.0",
     "typescript": "^4.7.4"
   },
   "peerDependencies": {
-    "nft.storage": "^7.0.0"
+    "nft.storage": "^7.0.0",
+    "decent-audio-player": "^1.0.5"
   },
   "types": "./dist/index.d.ts",
   "repository": {
