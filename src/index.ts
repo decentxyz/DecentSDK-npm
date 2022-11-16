@@ -23,5 +23,5 @@ export {
   metadataRenderer,
   vaultBackedNFT,
   rentalMarket,
-  ipfs
+  ipfs,
 };
