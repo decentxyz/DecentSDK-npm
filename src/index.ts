@@ -10,6 +10,7 @@ import metadataRenderer from './modules/MetadataRenderer';
 import vaultBackedNFT from './modules/VaultBackedNFT';
 import rentalMarket from './modules/RentalMarket';
 import ipfs from './modules/IPFS';
+import zkEdition from './modules/ZKEdition';
 
 export {
   DecentSDK,
@@ -24,4 +25,5 @@ export {
   vaultBackedNFT,
   rentalMarket,
   ipfs,
+  zkEdition,
 };
