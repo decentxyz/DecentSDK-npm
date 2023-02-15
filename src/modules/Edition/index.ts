@@ -14,7 +14,7 @@ const deploy = async (
   name: string,
   symbol: string,
   hasAdjustableCap: boolean,
-  maxTokens: number,
+  maxTokens: number | BigNumber,
   tokenPrice: BigNumber,
   maxTokenPurchase: number,
   presaleMerkleRoot: string | null,
