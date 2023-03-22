@@ -2,6 +2,7 @@ import { DecentSDK } from './sdk';
 import { chain } from './chains';
 import edition from './modules/Edition';
 import rentable from './modules/Rentable';
+import series from './modules/Series';
 import crescendo from './modules/Crescendo';
 import vault from './modules/Vault';
 import staking from './modules/Staking';
@@ -17,6 +18,7 @@ export {
   chain,
   edition,
   rentable,
+  series,
   crescendo,
   vault,
   staking,

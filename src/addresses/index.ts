@@ -12,6 +12,7 @@ export type Addresses = {
   DCNTSDK: string;
   DCNT721A: string;
   DCNT4907A: string;
+  DCNTSeries: string;
   DCNTCrescendo: string;
   DCNTVault: string;
   DCNTStaking: string;
@@ -19,7 +20,6 @@ export type Addresses = {
   DCNTRegistry: string;
   DCNTVaultNFT: string;
   DCNTRentalMarket: string;
-  SplitMain: string;
 }
 
 export const addresses = {
