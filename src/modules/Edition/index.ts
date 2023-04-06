@@ -9,6 +9,12 @@ export type TokenGateConfig = {
   saleType: number;
 }
 
+export const TokenGateNull = {
+  tokenAddress: ethers.constants.AddressZero,
+  minBalance: 0,
+  saleType: 0,
+}
+
 const deploy = async (
   sdk: SDK,
   name: string,

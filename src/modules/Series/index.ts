@@ -1,8 +1,7 @@
 import { SDK } from "../../sdk";
 import { ethers, BigNumber, Contract } from "ethers";
 import DCNTSeries from '../../contracts/DCNTSeries.json';
-import { TokenGateConfig } from '../Edition';
-
+import { TokenGateConfig, TokenGateNull } from '../Edition';
 
 export type DropConfig = {
   maxTokens: number | BigNumber,
@@ -13,7 +12,7 @@ export type DropConfig = {
   presaleEnd: number | BigNumber,
   saleStart: number,
   saleEnd: number | BigNumber,
-  tokenGateConfig: TokenGateConfig | null,
+  tokenGate: TokenGateConfig | null,
 }
 
 export type DropMap = {
@@ -23,7 +22,7 @@ export type DropMap = {
   drops: DropConfig[];
 }
 
-const DropMapNull = {
+export const DropMapNull = {
   tokenIds: [],
   tokenIdDropIds: [],
   dropIds: [],
@@ -67,13 +66,18 @@ const deploy = async (
     {
       ...defaultDrop,
       presaleMerkleRoot: defaultDrop.presaleMerkleRoot || ethers.constants.HashZero,
-      tokenGate: defaultDrop.tokenGateConfig || {
-        tokenAddress: ethers.constants.AddressZero,
-        minBalance: 0,
-        saleType: 0,
-      }
+      tokenGate: defaultDrop.tokenGate || TokenGateNull
     },
-    dropOverrides || DropMapNull
+    {
+      tokenIds: dropOverrides?.tokenIds ?? [],
+      tokenIdDropIds: dropOverrides?.tokenIdDropIds ?? [],
+      dropIds: dropOverrides?.dropIds ?? [],
+      drops: dropOverrides?.drops.map((drop) => ({
+          ...drop,
+          presaleMerkleRoot: drop.presaleMerkleRoot || ethers.constants.HashZero,
+          tokenGate: drop.tokenGate || TokenGateNull
+      })) || [],
+    }
   );
 
   onTxPending?.(deployTx);
