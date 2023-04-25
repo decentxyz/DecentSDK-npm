@@ -12,6 +12,7 @@ import vaultBackedNFT from './modules/VaultBackedNFT';
 import rentalMarket from './modules/RentalMarket';
 import ipfs from './modules/IPFS';
 import zkEdition from './modules/ZKEdition';
+import feeManager from './modules/FeeManager';
 
 export {
   DecentSDK,
@@ -28,4 +29,5 @@ export {
   rentalMarket,
   ipfs,
   zkEdition,
+  feeManager,
 };
