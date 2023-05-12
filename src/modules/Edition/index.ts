@@ -2,6 +2,7 @@ import { SDK } from "../../sdk";
 import { ethers, BigNumber, Contract } from "ethers";
 import DCNT721A from '../../contracts/DCNT721A.json';
 import { MetadataRendererInit } from '../MetadataRenderer';
+import { txOverrides } from '../../utils/txOverrides';
 
 export type TokenGateConfig = {
   tokenAddress: string;
@@ -77,7 +78,8 @@ const deploy = async (
       tokenAddress: ethers.constants.AddressZero,
       minBalance: 0,
       saleType: 0,
-    }
+    },
+    await txOverrides(sdk.signerOrProvider)
   );
 
   onTxPending?.(deployTx);

@@ -3,6 +3,7 @@ import { ethers, BigNumber, Contract } from "ethers";
 import DCNT4907A from '../../contracts/DCNT4907A.json';
 import { MetadataRendererInit } from '../MetadataRenderer';
 import { TokenGateConfig } from '../Edition';
+import { txOverrides } from '../../utils/txOverrides';
 
 const deploy = async (
   sdk: SDK,
@@ -66,7 +67,8 @@ const deploy = async (
       tokenAddress: ethers.constants.AddressZero,
       minBalance: 0,
       saleType: 0,
-    }
+    },
+    await txOverrides(sdk.signerOrProvider)
   );
 
   onTxPending?.(deployTx);

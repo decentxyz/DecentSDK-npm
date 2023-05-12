@@ -2,6 +2,7 @@ import { SDK } from "../../sdk";
 import { ethers, BigNumber } from "ethers";
 import FeeManager from '../../contracts/FeeManager.json';
 import { Signer } from "@ethersproject/abstract-signer";
+import { txOverrides } from '../../utils/txOverrides';
 
 const deploy = async (
   sdk: SDK,
@@ -16,7 +17,11 @@ const deploy = async (
     sdk.signerOrProvider as Signer
   );
 
-  const feeManager = await factory.deploy(fee, commissionBPS);
+  const feeManager = await factory.deploy(
+    fee,
+    commissionBPS,
+    await txOverrides(sdk.signerOrProvider)
+  );
 
   onTxPending?.(feeManager.deployTransaction);
   const receipt = await feeManager.deployTransaction.wait();

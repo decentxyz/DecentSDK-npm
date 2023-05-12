@@ -2,6 +2,7 @@ import { SDK } from "../../sdk";
 import { ethers, BigNumber, Contract } from "ethers";
 import DCNTCrescendo from '../../contracts/DCNTCrescendo.json';
 import { MetadataRendererInit } from '../MetadataRenderer';
+import { txOverrides } from '../../utils/txOverrides';
 
 const deploy = async (
   sdk: SDK,
@@ -51,7 +52,8 @@ const deploy = async (
       metadataURI,
       metadataRendererInit: encodedMetadata,
       parentIP
-    }
+    },
+    await txOverrides(sdk.signerOrProvider)
   );
 
   onTxPending?.(deployTx);

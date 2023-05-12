@@ -5,6 +5,7 @@ import { MetadataRendererInit } from '../MetadataRenderer';
 import { TokenGateConfig } from '../Edition';
 import edition from '../Edition';
 import vault from '../Vault';
+import { txOverrides } from '../../utils/txOverrides';
 
 const create = async(
   sdk: SDK,
@@ -77,7 +78,8 @@ const create = async(
     },
     vaultDistributionTokenAddress,
     unlockDate,
-    supports4907
+    supports4907,
+    await txOverrides(sdk.signerOrProvider)
   );
 
   onTxPending?.(deployTx);

@@ -2,6 +2,7 @@ import { SDK } from "../../sdk";
 import { ethers, BigNumber, Contract } from "ethers";
 import DCNTSeries from '../../contracts/DCNTSeries.json';
 import { TokenGateConfig, TokenGateNull } from '../Edition';
+import { txOverrides } from '../../utils/txOverrides';
 
 export type DropConfig = {
   maxTokens: number | BigNumber,
@@ -77,7 +78,8 @@ const deploy = async (
           presaleMerkleRoot: drop.presaleMerkleRoot || ethers.constants.HashZero,
           tokenGate: drop.tokenGate || TokenGateNull
       })) || [],
-    }
+    },
+    await txOverrides(sdk.signerOrProvider)
   );
 
   onTxPending?.(deployTx);

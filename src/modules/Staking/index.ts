@@ -1,6 +1,7 @@
 import { SDK } from "../../sdk";
 import { ethers, Contract } from "ethers";
 import DCNTStaking from '../../contracts/DCNTStaking.json';
+import { txOverrides } from '../../utils/txOverrides';
 
 const deploy = async (
   sdk: SDK,
@@ -15,7 +16,8 @@ const deploy = async (
     nft,
     token,
     vaultDuration,
-    totalSupply
+    totalSupply,
+    await txOverrides(sdk.signerOrProvider)
   );
 
   onTxPending?.(deployTx);

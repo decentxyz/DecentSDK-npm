@@ -3,6 +3,7 @@ import { ethers, BigNumber, Contract } from "ethers";
 import ZKEdition from '../../contracts/ZKEdition.json';
 import { MetadataRendererInit } from '../MetadataRenderer';
 import { TokenGateConfig } from '../Edition';
+import { txOverrides } from '../../utils/txOverrides';
 
 const deploy = async (
   sdk: SDK,
@@ -68,7 +69,8 @@ const deploy = async (
       minBalance: 0,
       saleType: 0,
     },
-    zkVerifier
+    zkVerifier,
+    await txOverrides(sdk.signerOrProvider)
   );
 
   onTxPending?.(deployTx);
