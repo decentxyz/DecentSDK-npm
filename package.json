@@ -1,6 +1,6 @@
 {
   "name": "@decent.xyz/sdk",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "main": "dist/index.js",
   "scripts": {
     "build": "rollup -c",

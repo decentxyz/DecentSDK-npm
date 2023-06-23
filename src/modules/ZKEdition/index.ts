@@ -20,6 +20,7 @@ const deploy = async (
   saleStart: number,
   saleEnd: number | BigNumber,
   royaltyBPS: number,
+  feeManager: string,
   payoutAddress: string,
   contractURI: string,
   metadataURI: string,
@@ -56,6 +57,7 @@ const deploy = async (
       saleStart,
       saleEnd,
       royaltyBPS,
+      feeManager,
       payoutAddress,
     },
     {
