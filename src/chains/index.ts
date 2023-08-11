@@ -18,6 +18,12 @@ const goerli: Chain = {
   addresses: addresses.goerli,
 }
 
+const sepolia: Chain = {
+  id: 11_155_111,
+  network: 'sepolia',
+  addresses: addresses.sepolia,
+}
+
 const polygon: Chain = {
   id: 137,
   network: 'polygon',
@@ -54,6 +60,30 @@ const arbitrumGoerli: Chain = {
   addresses: addresses.arbitrumGoerli,
 }
 
+const base: Chain = {
+  id: 8_453,
+  network: 'base',
+  addresses: addresses.base,
+}
+
+const baseGoerli: Chain = {
+  id: 84_531,
+  network: 'baseGoerli',
+  addresses: addresses.baseGoerli,
+}
+
+const zora: Chain = {
+  id: 7_777_777,
+  network: 'zora',
+  addresses: addresses.zora,
+}
+
+const zoraGoerli: Chain = {
+  id: 999,
+  network: 'zoraGoerli',
+  addresses: addresses.zoraGoerli,
+}
+
 const localhost: Chain = {
   id: 1_337,
   network: 'localhost',
@@ -74,12 +104,17 @@ const withId = (chainId: number) => {
 export const chain = {
   mainnet,
   goerli,
+  sepolia,
   polygon,
   polygonMumbai,
   optimism,
   optimismGoerli,
   arbitrum,
   arbitrumGoerli,
+  base,
+  baseGoerli,
+  zora,
+  zoraGoerli,
   hardhat,
   localhost,
   withId,
@@ -88,12 +123,17 @@ export const chain = {
 export const allChains = [
   mainnet,
   goerli,
+  sepolia,
   polygon,
   polygonMumbai,
   optimism,
   optimismGoerli,
   arbitrum,
   arbitrumGoerli,
+  base,
+  baseGoerli,
+  zora,
+  zoraGoerli,
   hardhat,
   localhost,
 ];
